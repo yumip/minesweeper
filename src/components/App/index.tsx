@@ -8,7 +8,7 @@ const App: React.FC = () => {
     const [cells, setCells] = useState(generateCells());
     console.log("cells", cells);
     const renderCells = (): React.ReactNode => {
-        return cells.map((row, rowIndex) => row.map((cell, colIndex) => <Button key={`${rowIndex}-${colIndex}`} />));
+        return cells.map((row, rowIndex) => row.map((cell, colIndex) => <Button key={`${rowIndex}-${colIndex}`} state={cell.state} value={cell.value} row={ rowIndex } col={ colIndex }/>));
     }
     return <div className="App" >
         <div className="Header">

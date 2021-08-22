@@ -9,15 +9,21 @@
     justify-content: center;
     align-items: center;
     font-weight: bold;
+
     &.visible {
        border-color: #7b7b7b;
        border-width: 1px;
     }
 
-    sapn {
+    &.red {
+        background-color: red;
+    }
+
+    span {
         margin-left: 2px;
         font-size: 12px;
     }
+
 
     &.value-1 {
         color: blue;

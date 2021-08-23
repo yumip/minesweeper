@@ -79,6 +79,7 @@ const App: React.FC = () => {
         if ([CellState.flagged, CellState.visible].includes(currentCell.state)) {
             return;
         }
+
         if (currentCell.value === CellValue.bomb) {
             setHasLost(true);
             newCells[rowParam][colParam].red = true;
@@ -115,12 +116,15 @@ const App: React.FC = () => {
         }
         setCells(newCells);
     }
-    const handleCellContext = (rowParam: number, colParam: number) => (e:React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+    const handleCellContext = (rowParam: number, colParam: number) => (
+        e: React.MouseEvent<HTMLDivElement, MouseEvent>
+    ): void => {
         e.preventDefault();
 
         if (!live) {
             return;
         }
+
         const currentCells = cells.slice();
         let currentCell = cells[rowParam][colParam];
         if (currentCell.state === CellState.visible) {
@@ -134,7 +138,7 @@ const App: React.FC = () => {
                 currentCells[rowParam][colParam].state = CellState.open;
                 setBombCounter(bombCounter + 1);
         }
-        console.log("we are in right click")
+        // console.log("we are in right click")
         setCells(currentCells); 
     }
     const handleFaceClick = (): void => {
